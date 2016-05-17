@@ -11,7 +11,7 @@ h5,
 h6 {
   padding:0;
   margin:0;
-  font-family: "Roboto", sans-serif;
+  font-family: sans-serif, "Roboto";
 }
 
 .clear-fix {
@@ -26,7 +26,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #4B0082;
   line-height: 48px;
   display: inline;
 }
@@ -34,7 +34,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #4B0082;
   line-height: 29px;
   padding: 10px;
 }
@@ -58,9 +58,26 @@ h3,
 h4,
 h5 {
   padding:10px 5%;
-
 }
 
+#main {
+  padding: 20px 20px 0px 20px;
+}
+
+#pageBackground {
+  width: 98%;
+  -moz-box-shadow: 0 0 40px #232323;
+  -webkit-box-shadow: 0 0 40px #232323;
+  box-shadow: 0 0 40px #232323;
+}
+
+.pageMargins {
+  margin: 20px;
+}
+
+.lastPageMargins {
+  margin: 20px 20px 0px 20px;
+}
 
 .date-text {
   font-style: italic;
@@ -76,7 +93,6 @@ h5 {
   color: #999;
   line-height: 16px;
   float: right;
-
 }
 
 p {
@@ -92,24 +108,12 @@ a {
   display: block;
 }
 
-.welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #f3f3f3;
-  line-height: 28px;
+.aqua {
+  background-color: #99FFFF;
 }
 
-#skills-h3 {
-  color: #f5ae23;
-  display: none;
-}
-
-.orange {
-  background-color: #f5ae23;
-}
-
-.orange-text {
-  color: #f5ae23;
+.aqua-text {
+  color: #99FFFF;
 }
 
 .white-text {
@@ -118,18 +122,34 @@ a {
 }
 
 .gray {
-  background-color: #f3f3f3;
+  background-color: #777777;
+  padding-bottom: 10px;
+  clear:both;
+}
+
+.white {
+  background-color: #FFFFFF;
   padding-bottom: 10px;
   clear:both;
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: #1a1a1a;
 }
 
-/* TODO: Replace with image later */
+.contactsBar {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
 #header {
-  background-color: #484848;
+  float: left;
+  display: inline-block;
+}
+
+#skills-h3 {
+  display: none;
 }
 
 .flex-box {
@@ -139,6 +159,26 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+}
+
+.skills-flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+#skillsBox {
+  float: right;
+  display: inline-block;
+  margin: 30px;
+  background-color: #999999;
+  text-align: center;
+  -moz-box-shadow: 0 0 40px #232323;
+  -webkit-box-shadow: 0 0 40px #232323;
+  box-shadow: 0 0 40px #232323;
 }
 
 .center-content {
@@ -154,18 +194,21 @@ ul {
   padding: 10px;
   width: 200px;
   display: none;
+  margin-right: 30px;
+  margin-top: 30px;
+  -moz-box-shadow: 0 0 40px #232323;
+  -webkit-box-shadow: 0 0 40px #232323;
+  box-shadow: 0 0 40px #232323;
 }
 
 img {
   padding: 10px;
+  border-style: groove;
+  border-color: #999;
 }
 
 span {
   padding: 5px;
-}
-
-#lets-connect {
-  text-align: center;
 }
 
 /* Media queries to handle various device widths */
@@ -211,4 +254,84 @@ span {
   .biopic {
     display: block;
   }
+}
+
+/* to add thought bubble to welcome msg. adapted from:
+http://nicolasgallagher.com/pure-css-speech-bubbles/ */
+.oval-thought {
+  position:relative;
+  display: inline-block;
+  width:auto;
+  padding:30px 20px;
+  margin:1em auto 80px;
+  text-align:center;
+  font-weight: bold;
+  font-size: 18px;
+  color:#fff;
+  background: #99FFFF;
+  /* css3 */
+  background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#99FFFF));
+  background:-moz-linear-gradient(#2e88c4, #99FFFF);
+  background:-o-linear-gradient(#2e88c4, #99FFFF);
+  background:linear-gradient(#2e88c4, #99FFFF);
+  /*
+  NOTES:
+  -webkit-border-radius:220px 120px; // produces oval in safari 4 and chrome 4
+  -webkit-border-radius:220px / 120px; // produces oval in chrome 4 (again!) but not supported in safari 4
+  Not correct application of the current spec, therefore, using longhand to avoid future problems with webkit corrects this
+  */
+  -webkit-border-top-left-radius:220px 120px;
+  -webkit-border-top-right-radius:220px 120px;
+  -webkit-border-bottom-right-radius:220px 120px;
+  -webkit-border-bottom-left-radius:220px 120px;
+  -moz-border-radius:220px / 120px;
+  border-radius:220px / 120px;
+}
+
+.oval-thought p {font-size:1.25em;}
+
+/* creates the larger circle */
+.oval-thought:before {
+  content:"";
+  position:absolute;
+  bottom:-20px;
+  left:50px;
+  width:30px;
+  height:30px;
+  background:#99FFFF;
+  /* css3 */
+  -webkit-border-radius:30px;
+  -moz-border-radius:30px;
+  border-radius:30px;
+}
+
+/* creates the smaller circle */
+.oval-thought:after {
+  content:"";
+  position:absolute;
+  bottom:-30px;
+  left:30px;
+  width:15px;
+  height:15px;
+  background:#99FFFF;
+  /* css3 */
+  -webkit-border-radius:15px;
+  -moz-border-radius:15px;
+  border-radius:15px;
+}
+
+/*style for fill in the blanks map*/
+path {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.background {
+  fill: none;
+  stroke: #ddd;
+}
+
+.foreground {
+  fill: none;
+  pointer-events: all;
 }
